@@ -11,6 +11,15 @@ import * as Yup from "yup";
 const EventSchema = Yup.object().shape({
   title: Yup.string()
     .required("Event title is required.")
+    .min(2, "Too short."),
+  description: Yup.string()
+    .required("Event description is required.")
+    .min(9, "Too short."),
+  city: Yup.string()
+    .required("Event city is required.")
+    .min(3, "Too short."),
+  venue: Yup.string()
+    .required("Event venue is required.")
     .min(2, "Too short.")
 });
 
@@ -47,64 +56,60 @@ class EventForm extends Component {
           }}
         >
           {({
-            values,
-            errors,
-            touched,
-            handleChange,
-            handleBlur,
+            // values,
+            // errors,
+            // touched,
+            // handleChange,
+            // handleBlur,
             handleSubmit,
             isSubmitting,
             isValid
           }) => {
             return (
               <Form onSubmit={handleSubmit} autoComplete="off">
-                <Form.Field>
-                  <label>Event Title</label>
-                  <Field
-                    type="text"
-                    name="title"
-                    placeholder="Event Title..."
-                    component={TextInput}
-                  />
-                </Form.Field>
+                <Field
+                  type="text"
+                  name="title"
+                  datalabel="Event Title"
+                  placeholder="Event Title..."
+                  component={TextInput}
+                />
+                <Field
+                  type="text"
+                  name="category"
+                  datalabel="Event Category"
+                  placeholder="Event category..."
+                  component={TextInput}
+                />
+                <Field
+                  type="text"
+                  name="description"
+                  datalabel="Event Description"
+                  placeholder="Event description..."
+                  component={TextInput}
+                />
+                <Field
+                  type="text"
+                  name="city"
+                  datalabel="Event City"
+                  placeholder="City event is taking place"
+                  component={TextInput}
+                />
+                <Field
+                  type="text"
+                  name="venue"
+                  datalabel="Event Venue"
+                  placeholder="Enter the Venue of the event"
+                  component={TextInput}
+                />
+                <Field
+                  type="text"
+                  name="date"
+                  datalabel="Event Date"
+                  placeholder="Event Date..."
+                  component={TextInput}
+                />
 
-                <Form.Field>
-                  <label>Event Date</label>
-                  <input
-                    type="date"
-                    placeholder="Event Date"
-                    name="date"
-                    onChange={handleChange}
-                    value={values.date}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label>City</label>
-                  <input
-                    placeholder="City event is taking place"
-                    name="city"
-                    onChange={handleChange}
-                    value={values.city}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label>Venue</label>
-                  <input
-                    placeholder="Enter the Venue of the event"
-                    name="venue"
-                    onChange={handleChange}
-                    value={values.venue}
-                  />
-                </Form.Field>
-                <Form.Field>
-                  <label>Hosted By</label>
-                  <input
-                    placeholder="Enter the name of person hosting"
-                    name="hostedBy"
-                    onChange={handleChange}
-                    value={values.hostedBy}
-                  />
-                </Form.Field>
                 <Button
                   positive
                   type="submit"
@@ -138,6 +143,8 @@ const mapStateToProps = (state, ownProps) => {
     date: "",
     city: "",
     venue: "",
+    category: "",
+    description: "",
     hostedBy: ""
   };
 
