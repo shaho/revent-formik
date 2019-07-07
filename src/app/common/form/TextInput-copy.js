@@ -2,24 +2,26 @@ import React from "react";
 import { Form, Label, Input } from "semantic-ui-react";
 
 const TextInput = ({
-  field,
+  field: { name, value },
   form: { touched, errors },
   datalabel,
   ...props
 }) => {
-  // const isError = touched[field.name] && errors[field.name];
+  const isError = touched[name] && errors[name];
   return (
     <Form.Field>
       <label>{datalabel}</label>
       <Input
-        className={touched[field.name] && errors[field.name] && "error"}
-        // error={isError ? "error" : null}
-        {...field}
+        // className={touched[field.name] && errors[field.name] && "error"}
+        // {isError ? "" : ""}
+        name
+        value={value}
         {...props}
+        // {...touched[field.name] && errors[field.name] && "error"}
       />
-      {touched[field.name] && errors[field.name] && (
+      {touched[name] && errors[name] && (
         <Label basic color="red" pointing>
-          {errors[field.name]}
+          {errors[name]}
         </Label>
       )}
     </Form.Field>
