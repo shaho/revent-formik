@@ -13,7 +13,6 @@ const TextInput = ({
       <label>{datalabel}</label>
       <Input
         className={touched[field.name] && errors[field.name] && "error"}
-        // error={isError ? "error" : null}
         {...field}
         {...props}
       />

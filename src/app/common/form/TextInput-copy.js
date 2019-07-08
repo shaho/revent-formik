@@ -14,6 +14,7 @@ const TextInput = ({
       <Input
         // className={touched[field.name] && errors[field.name] && "error"}
         // {isError ? "" : ""}
+        error={isError}
         name
         value={value}
         {...props}

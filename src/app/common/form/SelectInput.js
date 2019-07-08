@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Label, Dropdown, Select } from "semantic-ui-react";
+import { Form, Label, Select } from "semantic-ui-react";
 
 const SelectInput = ({
   field: { name, value },
@@ -13,9 +13,6 @@ const SelectInput = ({
   return (
     <Form.Field>
       <label>{datalabel}</label>
-
-      {/* sdfsdf */}
-
       <Select
         value={value || null}
         // onChange={(e, data) => field.onChange(field.value)}
@@ -33,8 +30,6 @@ const SelectInput = ({
         onChange={(_, { value }) => setFieldValue(name, value)}
         {...props}
       /> */}
-
-      {/* sdfsdf */}
 
       {touched[name] && errors[name] && (
         <Label basic color="red">
