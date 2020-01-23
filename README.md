@@ -1,2 +1,2 @@
 ## Revent
-Revent project based on Formik
+React events project based on Formik
