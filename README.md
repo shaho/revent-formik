@@ -1,2 +1,2 @@
-## React Envents AKA Revent
+## React Envents Repo AKA Revent
 Events project based on React.js, Redux and Formik 1.x
